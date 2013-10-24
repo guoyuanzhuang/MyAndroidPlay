@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/picbg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/videoplay_lately_top"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentTop="true"
+        layout="@layout/titlelayout" />
+
+    <RelativeLayout
+        android:id="@+id/date_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_below="@+id/videoplay_lately_top"
+        android:background="@drawable/white_background_small"
+        android:gravity="center_vertical"
+        android:visibility="gone" >
+
+        <ImageButton
+            android:id="@+id/date_change"
+            android:layout_width="65dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dip" />
+    </RelativeLayout>
+    <!--
+android:columnWidth="60dp"
+android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:scrollingCache="false"
+    -->
+
+    <GridView
+        android:id="@+id/img_gridView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/videoplay_lately_top"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:numColumns="3" />
+
+</RelativeLayout>

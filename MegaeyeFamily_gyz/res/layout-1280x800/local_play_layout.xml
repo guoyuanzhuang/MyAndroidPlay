@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <include
+        android:id="@+id/play_top"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentTop="true"
+        layout="@layout/titlelayout" />
+
+    <RelativeLayout
+        android:id="@+id/play_View_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="350dip"
+        android:layout_below="@id/play_top"
+        android:gravity="center"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/video_play"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/play_land_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_below="@id/play_View_layout"
+        android:background="@drawable/play_2_bg" >
+
+        <ImageButton
+            android:id="@+id/performMenuBtn_play_"
+            android:layout_width="55dip"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="3dip"
+            android:layout_marginTop="3dip"
+            android:background="@drawable/start" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/line_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/play_land_layout"
+        android:background="@drawable/megaeyebg" >
+
+        <TextView
+            android:id="@+id/play_line_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:text="我的视频"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <HorizontalScrollView
+            android:id="@+id/myScrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/play_line_tv"
+            android:layout_marginTop="10dp" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <GridView
+                    android:id="@+id/play_gridview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:horizontalSpacing="10dp"
+                    android:columnWidth="110dip"
+                    android:stretchMode="none" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/megaeyeitem_img_ib"
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/b_blue" />
+
+    <TextView
+        android:id="@+id/megaeyeitem_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/megaeyeitem_img_ib"
+        android:layout_centerHorizontal="true"
+        android:background="@color/graybg"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</RelativeLayout>

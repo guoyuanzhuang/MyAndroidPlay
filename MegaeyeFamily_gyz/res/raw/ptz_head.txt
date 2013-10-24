@@ -1,0 +1,11 @@
+INFO sip:gebroadcast@x SIP/2.0
+Content-Type: application/global_eye_v10+xml
+Content-Length: %d
+To: <sip:gebroadcast@x>
+From: <sip:test@y>
+CSeq: 1234 INFO
+Call-ID: 01234567890abcdef
+Max-Forwards: 70
+Via: SIP/2.0/UDP 127.0.0.1;branch=z9hG4bK776asdhds
+Contact: <sip:test@y>
+
