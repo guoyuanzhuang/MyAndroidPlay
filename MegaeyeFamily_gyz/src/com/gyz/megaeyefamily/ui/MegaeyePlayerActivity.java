@@ -56,14 +56,12 @@ public class MegaeyePlayerActivity extends Activity {
 	
 	public HttpRequestUtil httpRequestUtil = null;
 	private Toast toastinfo = null;
-	// public MegaeyeFamilyApplication megaeyeApplication;
 	private MegaeyeGridAdapter megaeyeAdapter = null;
 	private List<MegaeyeInfo> megaeyeInfoList = null; // 所有监控点信息
 	private MegaeyePlayAddress mPlayAddress = null; // 当前播放地址
 	private MegaeyeInfo megaeyeInfo = null; // 当前播放监控点信息
 	private int videoIndex = -1; // 当前播放视频索引
 	private int ptzFlag = -1; // 当前播放云平台控制标识 0:无权限 1：有权限
-	// private int videoPossion = -1; // 监控点索引
 	public LivePlayer mLivePlayer; // 播放控制
 	private PtzUdpClient ptzUdpClient; // 云台控制
 	public SettingBean settingBean;

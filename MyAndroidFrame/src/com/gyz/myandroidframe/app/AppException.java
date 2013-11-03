@@ -88,8 +88,7 @@ public class AppException extends Exception implements UncaughtExceptionHandler 
 			 Toast.makeText(ctx, R.string.network_not_connected,Toast.LENGTH_SHORT).show();
 			break;
 		case TYPE_XML:
-			// Toast.makeText(ctx, R.string.xml_parser_failed,
-			// Toast.LENGTH_SHORT).show();
+			 Toast.makeText(ctx, R.string.xml_parser_failed,Toast.LENGTH_SHORT).show();
 			break;
 		case TYPE_IO:
 			// Toast.makeText(ctx, R.string.io_exception_error,

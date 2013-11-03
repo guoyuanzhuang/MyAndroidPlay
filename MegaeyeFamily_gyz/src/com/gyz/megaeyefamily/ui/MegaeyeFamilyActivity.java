@@ -133,11 +133,6 @@ public class MegaeyeFamilyActivity extends Activity {
 					removeDialog(LOADINGDIALOG);
 				}
 				break;
-//			case 100:
-//				if (megaeye_loading_iv != null) {
-//					megaeye_loading_iv.setVisibility(View.GONE);
-//				}
-//				break;
 			default:
 				break;
 			}
