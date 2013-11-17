@@ -20,6 +20,8 @@ public class AppLog {
 			Log.i(tag, msg);
 		}
 	}
+	
+	
 
 	public static void d(String tag, String msg) {
 		if (isToast) {
@@ -44,6 +46,7 @@ public class AppLog {
 			Log.w(tag, msg);
 		}
 	}
+	
 
 	private String getFunctionName() {
 		StackTraceElement[] sts = Thread.currentThread().getStackTrace();

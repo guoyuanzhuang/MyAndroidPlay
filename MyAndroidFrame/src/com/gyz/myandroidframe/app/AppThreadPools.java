@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class AppThreadPools {
 	private AppThreadPools() {
-
+		
 	}
 
 	// 线程池核心线程数

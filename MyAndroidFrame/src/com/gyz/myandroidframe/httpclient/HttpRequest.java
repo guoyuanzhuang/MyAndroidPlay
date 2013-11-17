@@ -46,6 +46,7 @@ import com.gyz.myandroidframe.app.AppLog;
  * @date 2013-11-3
  * 
  */
+@Deprecated
 public class HttpRequest {
 	private static String tag = "HttpRequest";
 	private static final String CHARSET_UTF8 = HTTP.UTF_8;// 字符编码
@@ -65,6 +66,7 @@ public class HttpRequest {
 	 * @return
 	 * @throws Exception
 	 */
+	@Deprecated
 	private synchronized static HttpClient getHttpClient(Context context) {
 		if (null == customerHttpClient) {
 			HttpParams params = new BasicHttpParams();
@@ -100,6 +102,7 @@ public class HttpRequest {
 	 * @param nameValuePairs
 	 * @return
 	 */
+	@Deprecated
 	public static String getHttpUrl(String url, NameValuePair... nameValuePairs) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(url);
@@ -122,6 +125,7 @@ public class HttpRequest {
 	 * @param nameValuePairs
 	 * @return
 	 */
+	@Deprecated
 	public static String getHttpUrl(NameValuePair... nameValuePairs) {
 		StringBuilder sb = new StringBuilder();
 		if (nameValuePairs != null && nameValuePairs.length > 0) {
@@ -139,6 +143,7 @@ public class HttpRequest {
 	 * @param nameValuePairs
 	 * @return
 	 */
+	@Deprecated
 	public static List<NameValuePair> postHttpEntity(
 			NameValuePair... nameValuePairs) {
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -163,6 +168,7 @@ public class HttpRequest {
 	 * @return
 	 * @throws AppException
 	 */
+	@Deprecated
 	public static InputStream postHttpClientRequest(Context context,
 			String url, NameValuePair... nameValuePairs) throws AppException {
 		try {
@@ -195,6 +201,7 @@ public class HttpRequest {
 	 * @return
 	 * @throws AppException
 	 */
+	@Deprecated
 	public static InputStream getHttpClientRequest(Context context, String url,
 			NameValuePair... nameValuePairs) throws AppException {
 		try {
@@ -224,9 +231,11 @@ public class HttpRequest {
 		}
 	}
 
+	@Deprecated
 	public static InputStream getHttpUrlConnection(String strUrl,
 			NameValuePair... nameValuePairs) throws AppException {
 		InputStream resultStream = null;
+
 		try {
 			String httpUrl = getHttpUrl(strUrl, nameValuePairs);
 			URL url = new URL(httpUrl);
@@ -262,10 +271,8 @@ public class HttpRequest {
 			throw AppException.network(e);
 		}
 	}
-	
-	
 
-
+	@Deprecated
 	public static InputStream postHttpURLConnection(String strUrl,
 			NameValuePair... nameValuePairs) throws AppException {
 
@@ -319,6 +326,7 @@ public class HttpRequest {
 	 * @param mContext
 	 * @return
 	 */
+	@Deprecated
 	private static String getUserAgent(Context mContext) {
 		if (appUserAgent == null || appUserAgent == "") {
 			StringBuilder ua = new StringBuilder(
@@ -333,7 +341,4 @@ public class HttpRequest {
 		return appUserAgent;
 	}
 
-	public interface CallBackInputStream {
-		void getInputSteam(InputStream mInputStream);
-	}
 }
