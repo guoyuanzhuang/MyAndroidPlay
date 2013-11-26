@@ -7,5 +7,14 @@ package com.gyz.myandroidframe.app;
  * 
  */
 public class AppConfig {
+	public static AppConfig mAppConfig;
+
+	public static AppConfig getInstance() {
+		if (mAppConfig == null) {
+			mAppConfig = new AppConfig();
+		}
+		return mAppConfig;
+	}
+	
 	
 }

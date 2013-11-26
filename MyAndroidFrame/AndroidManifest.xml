@@ -8,12 +8,23 @@
         android:minSdkVersion="12"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 访问网络权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 访问SD卡权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> <!-- I/O File操作权限 -->
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.gyz.myandroidframe" >
+    </instrumentation>
+
     <application
+        android:name=".app.AppContext"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:name=".app.AppContext" >
+        android:theme="@style/AppTheme" >
+        <uses-library android:name="android.test.runner" />
+
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name" >
@@ -23,6 +34,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="com.gyz.myandroidframe.dao.PluginsProvider"
+            android:authorities="com.gyz.myandroidframe.dao" >
+        </provider>
     </application>
 
 </manifest>
