@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Message Version="1.0">
-<IE_HEADER MessageType="MSG_PTZ_SET_REQ" UserID="%s" DestID="%s" />
-<IE_PTZ OpId="%s" Param1="%s" Param2="0" />
-</Message>

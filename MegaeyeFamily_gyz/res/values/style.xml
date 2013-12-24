@@ -1,14 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="MyDialog" parent="@android:Theme.Dialog">
-        <item name="android:windowFrame">@null</item><!--边框-->  
-        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->  
-        <item name="android:windowIsTranslucent">true</item><!--半透明-->  
-        <item name="android:windowNoTitle">true</item><!--无标题-->  
-        <item name="android:background">@color/transparent</item><!--背景透明-->  
-        <item name="android:windowBackground">@color/transparent</item>
-        <item name="android:backgroundDimEnabled">true</item><!--模糊-->  
-        <item name="android:backgroundDimAmount">0.5</item><!-- 值为 0 和 1 之间。零的含义有没有变暗，和 1 意味着 100%黑色 -->
-    </style>
-
-</resources>
