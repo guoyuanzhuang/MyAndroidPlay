@@ -1,4 +1,4 @@
-package com.gyz.myandroidframe.httpclient;
+package com.gyz.myandroidframe.httpdata;
 
 import java.util.List;
 
@@ -61,8 +61,8 @@ public class HttpConnectUtils implements Runnable {
 	private int doMethod; // get or post
 	private String url; // 请求url
 	private List<NameValuePair> nameValuePairs;// 请求参数
-	private boolean isCacheEnable = true; // 是否写缓存
-	private boolean isRefresh = false; // 是否强制刷新
+	private boolean isCacheEnable = true; // 是否读取缓存
+	// private boolean isRefresh = false; // 是否强制刷新
 	// 缓存参数
 	private DataCacheFactory mDataCacheFactory;
 	private String cacheKey;
@@ -94,9 +94,9 @@ public class HttpConnectUtils implements Runnable {
 		this.isCacheEnable = isCacheEnable;
 	}
 
-	public void setRefresh(boolean isRefresh) {
-		this.isRefresh = isRefresh;
-	}
+	// public void setRefresh(boolean isRefresh) {
+	// this.isRefresh = isRefresh;
+	// }
 
 	/**
 	 * 
@@ -126,30 +126,30 @@ public class HttpConnectUtils implements Runnable {
 		// TODO Auto-generated method stub
 		cacheKey = getHttpUrl(url, nameValuePairs);
 		if (isCacheEnable) { // 设置缓存
-			if (!isRefresh) { // 不刷新
-				String results = mDataCacheFactory.getMemory(cacheKey);
+			// if (!isRefresh) { // 不刷新
+			String results = mDataCacheFactory.getMemory(cacheKey);
+			if (!TextUtils.isEmpty(results)) {
+				mHandler.sendMessage(Message.obtain(mHandler,
+						HttpHandler.HTTP_SUCCESS, results));
+			} else {
+				results = mDataCacheFactory.getDisk(cacheKey);
 				if (!TextUtils.isEmpty(results)) {
 					mHandler.sendMessage(Message.obtain(mHandler,
 							HttpHandler.HTTP_SUCCESS, results));
-				} else {
-					results = mDataCacheFactory.getDisk(cacheKey);
-					if (!TextUtils.isEmpty(results)) {
-						mHandler.sendMessage(Message.obtain(mHandler,
-								HttpHandler.HTTP_SUCCESS, results));
-						boolean isInvalid = mDataCacheFactory
-								.isDiskInvalid(cacheKey);
-						if (isInvalid) { // 缓存失效走网络
-							startHttpRequest(doMethod, isCacheEnable);
-						}
-					} else {
-						// 无缓存走网络
+					boolean isInvalid = mDataCacheFactory
+							.isDiskInvalid(cacheKey);
+					if (isInvalid) { // 缓存失效走网络
 						startHttpRequest(doMethod, isCacheEnable);
 					}
+				} else {
+					// 无缓存走网络
+					startHttpRequest(doMethod, isCacheEnable);
 				}
-			} else {
-				// 刷新走网络
-				startHttpRequest(doMethod, isCacheEnable);
 			}
+			// } else {
+			// // 刷新走网络
+			// startHttpRequest(doMethod, isCacheEnable);
+			// }
 		} else {
 			// 不缓存走网络
 			startHttpRequest(doMethod, isCacheEnable);
@@ -213,10 +213,10 @@ public class HttpConnectUtils implements Runnable {
 				mHandler.sendMessage(Message.obtain(mHandler,
 						HttpHandler.HTTP_SUCCESS, results));
 				AppLog.e(tag, results);
-				if (isCacheEnable) {
-					mDataCacheFactory.setMemory(cacheKey, results);
-					mDataCacheFactory.setDisk(cacheKey, results);
-				}
+				// if (isCacheEnable) {
+				mDataCacheFactory.setMemory(cacheKey, results);
+				mDataCacheFactory.setDisk(cacheKey, results);
+				// }
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

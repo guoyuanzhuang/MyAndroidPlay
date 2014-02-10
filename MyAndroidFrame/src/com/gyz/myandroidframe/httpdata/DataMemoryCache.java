@@ -1,4 +1,4 @@
-package com.gyz.myandroidframe.httpclient;
+package com.gyz.myandroidframe.httpdata;
 
 import android.util.LruCache;
 

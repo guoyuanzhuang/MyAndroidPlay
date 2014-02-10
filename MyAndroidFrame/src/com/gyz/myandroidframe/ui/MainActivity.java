@@ -6,9 +6,11 @@ import android.os.Handler;
 import android.view.Menu;
 
 import com.gyz.myandroidframe.R;
-import com.gyz.myandroidframe.httpclient.HttpHandler;
+import com.gyz.myandroidframe.httpdata.HttpHandler;
+import com.gyz.myandroidframe.util.DownloadUtil;
 
 public class MainActivity extends Activity {
+	DownloadUtil mDownload;
 
 	Handler mHandler = new HttpHandler(this) {
 
@@ -18,8 +20,17 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-//		this.getFileStreamPath(name)
-//		this.open
+		mDownload = new DownloadUtil(this);
+		mDownload
+				.startDownload("美丽不说",
+						"http://www.kuaidadi.com/resources/apk/kuaidisiji_2.1_24635.apk");
+	}
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		mDownload.destroyBrodcast();
 	}
 
 	@Override

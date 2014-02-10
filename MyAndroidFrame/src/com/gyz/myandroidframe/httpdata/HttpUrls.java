@@ -1,4 +1,4 @@
-package com.gyz.myandroidframe.httpclient;
+package com.gyz.myandroidframe.httpdata;
 /**
  * URL类：定义HTTP交互方式和协议
  * @author guoyuanzhuang

@@ -1,4 +1,4 @@
-package com.gyz.myandroidframe.httpclient;
+package com.gyz.myandroidframe.httpdata;
 
 import org.json.JSONException;
 import org.json.JSONObject;

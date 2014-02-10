@@ -1,4 +1,4 @@
-package com.gyz.myandroidframe.httpclient;
+package com.gyz.myandroidframe.httpdata;
 
 /**
  * 数据缓存策略接口(Memory/Local)

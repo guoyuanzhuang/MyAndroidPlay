@@ -32,7 +32,7 @@ public class NetworkUtil {
 	 * 
 	 * @return 0：没有网络 1：WIFI网络 2：WAP网络 3：NET网络
 	 */
-	public int getNetworkType(Context mContext) {
+	public static int getNetworkType(Context mContext) {
 		int netType = 0;
 		ConnectivityManager connectivityManager = (ConnectivityManager) mContext
 				.getSystemService(Context.CONNECTIVITY_SERVICE);

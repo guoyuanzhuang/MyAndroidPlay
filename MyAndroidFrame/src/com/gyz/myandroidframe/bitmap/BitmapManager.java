@@ -2,8 +2,8 @@ package com.gyz.myandroidframe.bitmap;
 
 import com.gyz.myandroidframe.app.AppLog;
 import com.gyz.myandroidframe.app.AppThreadPools;
-import com.gyz.myandroidframe.httpclient.HttpConnectUtils;
-import com.gyz.myandroidframe.httpclient.HttpHandler;
+import com.gyz.myandroidframe.httpdata.HttpConnectUtils;
+import com.gyz.myandroidframe.httpdata.HttpHandler;
 
 import android.content.Context;
 import android.graphics.Bitmap;
