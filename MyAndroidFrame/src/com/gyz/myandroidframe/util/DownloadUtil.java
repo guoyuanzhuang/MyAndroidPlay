@@ -21,6 +21,8 @@ import android.net.Uri;
  * 应用程序下载工具类(调用系统下载器)
  * 
  * @author guoyuanzhuang
+ * {@code mDownload = new DownloadUtil(this);
+		  mDownload.startDownload("美丽不说", "http://www.kuaidadi.com/resources/apk/kuaidisiji_2.1_24635.apk");}
  * 
  */
 public class DownloadUtil {

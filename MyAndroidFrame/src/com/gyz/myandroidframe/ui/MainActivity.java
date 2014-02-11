@@ -1,6 +1,5 @@
 package com.gyz.myandroidframe.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -9,7 +8,7 @@ import com.gyz.myandroidframe.R;
 import com.gyz.myandroidframe.httpdata.HttpHandler;
 import com.gyz.myandroidframe.util.DownloadUtil;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 	DownloadUtil mDownload;
 
 	Handler mHandler = new HttpHandler(this) {
@@ -19,13 +18,10 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		mDownload = new DownloadUtil(this);
-		mDownload
-				.startDownload("美丽不说",
-						"http://www.kuaidadi.com/resources/apk/kuaidisiji_2.1_24635.apk");
+		// setContentView(R.layout.activity_main);
+		setBaseContentView(R.layout.activity_main);
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub

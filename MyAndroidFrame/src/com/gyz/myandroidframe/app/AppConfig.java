@@ -1,7 +1,5 @@
 package com.gyz.myandroidframe.app;
 
-import com.gyz.myandroidframe.util.FileUtils;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
@@ -13,7 +11,6 @@ import android.os.Environment;
  * 
  */
 public class AppConfig {
-	private static final String CONFIG_NAME = "MyAndroidFrame_Config";
 	public static final String DIRNAME = "MyAndroidFrame";
 	public static final String DOWNLOAD_DIRNAME = "download";
 	public static final String APPINFO_PATH = Environment
@@ -21,6 +18,7 @@ public class AppConfig {
 	public static final String DOWNLOAD_PATH = APPINFO_PATH + "/" + DOWNLOAD_DIRNAME; // 下载保存目录(绝对路径)
 	public static final String DOWNLOAD_PATH_RE =  DIRNAME + "/" + DOWNLOAD_DIRNAME;//下载相对目录
 	//
+	private static final String CONFIG_NAME = "MyAndroidFrame_Config";
 	public static AppConfig mAppConfig;
 
 	public static AppConfig getInstance() {
