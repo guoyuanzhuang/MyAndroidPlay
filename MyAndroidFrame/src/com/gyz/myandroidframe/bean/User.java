@@ -31,7 +31,7 @@ public class User extends BaseEntity {
 	/**
 	 * 数据解析接口
 	 * @author guoyuanzhuang
-	 * 目的1、多态让我们可以实现不同的解析方式；2、减少依赖性增强扩展
+	 * 目的1、接口让我们可以实现不同的解析方式；2、减少依赖性增强扩展
 	 */
 	public interface UserParse{
 		User getUsers(InputStream stream) throws AppException;

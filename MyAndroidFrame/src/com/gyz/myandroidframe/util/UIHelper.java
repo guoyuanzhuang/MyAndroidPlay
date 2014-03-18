@@ -10,7 +10,7 @@ import com.gyz.myandroidframe.app.AppManager;
 
 
 /**
- * 应用程序UI工具包：封装UI相关的一些操作
+ * 应用程序UI工具包：封装UI事件驱动的一些操作
  * 
  * @author guoyuanzhuang
  */
@@ -38,7 +38,7 @@ public class UIHelper {
 						i.putExtra(Intent.EXTRA_EMAIL,
 								new String[] { "jxsmallmouse@163.com" });
 						i.putExtra(Intent.EXTRA_SUBJECT,
-								"开源中国Android客户端 - 错误报告");
+								"Android客户端 - 错误报告");
 						i.putExtra(Intent.EXTRA_TEXT, crashReport);
 						cont.startActivity(Intent.createChooser(i, "发送错误报告"));
 						// 退出
