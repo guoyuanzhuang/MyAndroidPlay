@@ -6,7 +6,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 
 /**
- * 应用程序消息服务:阻塞式接受远端发送的消息
+ * 应用程序PUSH服务:阻塞式接受远端发送的消息/采用第三方PUSH
  * 
  * @author guoyuanzhuang
  * 

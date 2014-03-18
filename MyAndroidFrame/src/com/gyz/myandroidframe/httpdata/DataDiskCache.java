@@ -142,7 +142,7 @@ public class DataDiskCache implements BaseDataCache {
 	@Override
 	public void remove(String key) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	/**

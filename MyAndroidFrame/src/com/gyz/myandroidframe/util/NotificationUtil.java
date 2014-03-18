@@ -1,6 +1,7 @@
 package com.gyz.myandroidframe.util;
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -43,6 +44,7 @@ public class NotificationUtil extends Notification {
 	 */
 	public NotificationUtil(Context context, int icon, int tickerText,
 			int flags, int layoutId, Class<?> targetClass) {
+		NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 		this.mContext = context;
 		this.icon = icon;
 		this.tickerText = context.getResources().getString(tickerText);
@@ -52,8 +54,6 @@ public class NotificationUtil extends Notification {
 		RemoteViews mRemoteView = new RemoteViews(context.getPackageName(),
 				layoutId);
 		this.contentView = mRemoteView;
-		// this.setLatestEventInfo(context, contentTitle, contentText,
-		// contentIntent) //默认
 		Intent intent = new Intent(context, targetClass);
 		intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent,
