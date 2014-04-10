@@ -36,7 +36,8 @@ public class BaseActivity extends Activity {
 	protected FrameLayout titile_content_view;
 	// listener
 	protected TitleOnClick mTitleOnClick;
-	//click interface
+
+	// click interface
 	public interface TitleOnClick {
 		void onClick(View v);
 	}
@@ -82,28 +83,49 @@ public class BaseActivity extends Activity {
 		}
 	};
 
-	//btn click 
+	// btn click
 	public void setTitleOnClick(TitleOnClick titleOnClick) {
 		this.mTitleOnClick = titleOnClick;
 	}
-	//left btn text
-	public void setLeftBtnText(String text){
+
+	// left btn text
+	public void setLeftBtnText(String text) {
 		this.title_left_tv.setText(text);
 	}
-	//left btn img
-	public void setLeftBtnImage(int resId){
+
+	// left btn img
+	public void setLeftBtnImage(int resId) {
 		this.title_left_img.setImageResource(resId);
 	}
-	//right btn text
-	public void setRightBtnText(String text){
+
+	// right btn text
+	public void setRightBtnText(String text) {
 		this.title_right_tv.setText(text);
 	}
-	//right btn img
-	public void setRightBtnImage(int resId){
+
+	// right btn img
+	public void setRightBtnImage(int resId) {
 		this.title_right_img.setImageResource(resId);
 	}
-	//center textView text
-	public void setCenterText(String text){
+
+	// center textView text
+	public void setCenterText(String text) {
 		this.title_center_tv.setText(text);
+	}
+
+	// is show left menu
+	public void isShowLeftMenu(boolean isShow) {
+		if (isShow)
+			this.title_left_view.setVisibility(View.VISIBLE);
+		else
+			this.title_left_view.setVisibility(View.GONE);
+	}
+
+	// is show right menu
+	public void isShowRightMenu(boolean isShow) {
+		if (isShow)
+			this.title_right_view.setVisibility(View.VISIBLE);
+		else
+			this.title_right_view.setVisibility(View.GONE);
 	}
 }

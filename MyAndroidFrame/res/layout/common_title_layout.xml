@@ -18,14 +18,13 @@
             android:layout_alignParentLeft="true"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip" >
-
+            android:paddingLeft="@dimen/title_menu_padding"
+            android:paddingRight="@dimen/title_menu_padding" >
+			<!--  android:background="@drawable/back_btn" -->
             <ImageView
                 android:id="@+id/title_left_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/back_btn"
                 android:scaleType="centerInside" />
 
             <TextView
@@ -36,7 +35,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/white"
-                android:textSize="15dip"
+                android:textSize="@dimen/title_menu_textsize"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -47,9 +46,8 @@
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
-            android:visibility="gone" >
+            android:paddingLeft="@dimen/title_menu_padding"
+            android:paddingRight="@dimen/title_menu_padding" >
 
             <ImageView
                 android:id="@+id/title_right_img"
@@ -65,7 +63,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/white"
-                android:textSize="13dip" />
+                android:textSize="@dimen/title_menu_textsize" />
         </LinearLayout>
 
         <LinearLayout
@@ -86,7 +84,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/white"
-                android:textSize="18dip" />
+                android:textSize="@dimen/title_center_textsize" />
         </LinearLayout>
     </RelativeLayout>
     <!-- 内容 -->

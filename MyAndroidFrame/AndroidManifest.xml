@@ -39,7 +39,6 @@
             android:name="com.gyz.myandroidframe.dao.PluginsProvider"
             android:authorities="com.gyz.myandroidframe.dao" >
         </provider>
-        <service android:name="com.gyz.myandroidframe.service.DownLoadService_new" />
         
     </application>
 
