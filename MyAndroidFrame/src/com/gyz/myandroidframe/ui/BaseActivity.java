@@ -2,7 +2,9 @@ package com.gyz.myandroidframe.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -12,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gyz.myandroidframe.R;
+import com.gyz.myandroidframe.app.AppManager;
 
 /**
  * activity 基类
@@ -41,6 +44,10 @@ public class BaseActivity extends Activity {
 	public interface TitleOnClick {
 		void onClick(View v);
 	}
+	
+	Handler baseHandler = new Handler(){
+		
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -128,4 +135,14 @@ public class BaseActivity extends Activity {
 		else
 			this.title_right_view.setVisibility(View.GONE);
 	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if(keyCode == KeyEvent.KEYCODE_BACK){
+			AppManager.getAppManager().finishActivity();
+		}
+		return true;
+	}
+	
 }

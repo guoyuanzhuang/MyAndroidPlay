@@ -26,6 +26,7 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
+import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,6 +35,7 @@ import android.os.Message;
 import android.text.TextUtils;
 
 import com.gyz.myandroidframe.R;
+import com.gyz.myandroidframe.app.AppException;
 import com.gyz.myandroidframe.app.AppLog;
 import com.gyz.myandroidframe.app.AppThreadPools;
 import com.gyz.myandroidframe.util.NetworkUtil;
@@ -167,7 +169,7 @@ public class HttpConnectUtils implements Runnable {
 			mHandler.sendMessage(Message.obtain(mHandler,
 					HttpHandler.HTTP_START));
 			if (!NetworkUtil.isNetworkConnected(mContext)) {
-				throw new Exception(); // 无网络连接
+				throw new NetworkErrorException(); // 无网络连接
 			}
 
 			HttpResponse httpResponse = null;

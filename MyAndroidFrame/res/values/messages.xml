@@ -10,9 +10,7 @@
     <string name="submit_report">提交报告</string>
     
     <!-- http message -->
-    <string name="http_status_code_error">网络异常，错误码：%d</string>
-    <string name="http_exception_error">网络异常，请求超时</string>
-    <string name="socket_exception_error">网络异常，读取数据超时</string>
+    <string name="http_exception_error">网络异常，连接超时。</string>
     <string name="network_not_connected">网络连接失败，请检查网络设置</string>
     
     <string name="xml_parser_failed">数据解析异常</string>

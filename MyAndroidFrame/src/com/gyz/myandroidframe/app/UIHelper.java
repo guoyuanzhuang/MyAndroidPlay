@@ -1,4 +1,4 @@
-package com.gyz.myandroidframe.util;
+package com.gyz.myandroidframe.app;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 
 import com.gyz.myandroidframe.R;
-import com.gyz.myandroidframe.app.AppManager;
 
 
 /**

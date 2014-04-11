@@ -1,6 +1,5 @@
 package com.gyz.myandroidframe.dataparse;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +9,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Xml;
 
+import com.gyz.myandroidframe.app.AppException;
 import com.gyz.myandroidframe.bean.Plugins;
 import com.gyz.myandroidframe.bean.Plugins.PluginParse;
 
@@ -72,8 +72,9 @@ public class PluginsParseImp implements PluginParse {
 				evtType = xmlParser.next();
 			}
 			mInputStream.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO: handle exception
+			AppException.xml(e);
 		}
 		return pluginList;
 	}
