@@ -82,18 +82,17 @@ ContentValues values = new ContentValues();
 //values.put("url", "3478");
 //values.put("content", "56789");
 //values.put("update_time", "123456789");
-//for (int i = 0; i < 10; i++) {
-//	getContentResolver().insert(Uri.parse("content://com.gyz.myandroidframe.dao/plugins"),values);
-//}
+//getContentResolver().insert(Uri.parse("content://com.gyz.myandroidframe.dao/plugins"),values);
 //getContentResolver().update(Uri.parse("content://com.gyz.myandroidframe.dao/plugins"), values, BaseColumns._ID + "=?", new String[]{"3"});
 //getContentResolver().delete(Uri.parse("content://com.gyz.myandroidframe.dao/plugins"), BaseColumns._ID + "=?", new String[]{"1"});
 //Cursor mCursor = getContentResolver().query(Uri.parse("content://com.gyz.myandroidframe.dao/plugins"), null, null, null, null);
+
 </code></pre>
 
 以上是简单的测试案例仅供参考。<br />
 
 
-###五、一些工具类不做描述<br /><br /><br />
+###五、一些工具类<br /><br /><br />
 
 
 
