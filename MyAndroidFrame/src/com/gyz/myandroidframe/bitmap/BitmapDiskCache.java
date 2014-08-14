@@ -4,7 +4,14 @@ import java.io.File;
 
 
 import android.graphics.Bitmap;
-
+/**
+ * 
+ * @ClassName BitmapDiskCache 
+ * @Description Bitmap本地缓存
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:40:37 
+ *
+ */
 public class BitmapDiskCache implements BaseLruCache {
 	private DiskLruCache mDiskLruCache;
 

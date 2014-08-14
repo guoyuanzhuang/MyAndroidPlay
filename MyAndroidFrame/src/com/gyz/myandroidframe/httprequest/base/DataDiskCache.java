@@ -1,4 +1,4 @@
-package com.gyz.myandroidframe.httpdata;
+package com.gyz.myandroidframe.httprequest.base;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,7 +20,7 @@ import com.gyz.myandroidframe.app.AppLog;
 public class DataDiskCache implements BaseDataCache {
 	private final String tag = this.getClass().getName();
 	private static final String CHARSET = "UTF-8";
-	private static final int CACHE_TIME = 60 * 60000;// 缓存失效时间
+	private static final int CACHE_TIME = 60000;// 缓存失效时间60 * 60000
 
 	private Context mContext;
 
@@ -198,7 +198,7 @@ public class DataDiskCache implements BaseDataCache {
 	 * @param file
 	 * @throws IOException
 	 */
-	public boolean saveObject2File(Context mContex, Serializable ser,
+	private boolean saveObject2File(Context mContex, Serializable ser,
 			String file) {
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
@@ -230,7 +230,7 @@ public class DataDiskCache implements BaseDataCache {
 	 * @return
 	 * @throws IOException
 	 */
-	public Serializable readFile2Object(Context mContext, String file) {
+	private Serializable readFile2Object(Context mContext, String file) {
 		if (!isExistDataCache(mContext, file))
 			return null;
 		FileInputStream fis = null;
@@ -257,5 +257,17 @@ public class DataDiskCache implements BaseDataCache {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public boolean put(String key, Serializable data) {
+		// TODO Auto-generated method stub
+		return saveObject2File(mContext, data, key);
+	}
+
+	@Override
+	public Serializable getObject(String key) {
+		// TODO Auto-generated method stub
+		return readFile2Object(mContext, key);
 	}
 }

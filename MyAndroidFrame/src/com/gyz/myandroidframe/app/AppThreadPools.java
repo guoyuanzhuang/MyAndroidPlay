@@ -6,9 +6,13 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+
 /**
- * 应用程序线程池：用于处理程序中所有用到线程的地方
- * @author guoyuanzhuang
+ * 
+ * @ClassName AppThreadPools 
+ * @Description 应用程序线程池：用于处理程序中所有用到线程的地方
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:35:53 
  *
  */
 public class AppThreadPools {

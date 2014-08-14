@@ -11,7 +11,7 @@ import android.net.Uri;
 import com.gyz.myandroidframe.app.AppLog;
 import com.gyz.myandroidframe.db.BaseTableColumns;
 import com.gyz.myandroidframe.db.DBHelper;
-import com.gyz.myandroidframe.db.PluginsColumns;
+import com.gyz.myandroidframe.db.TestItemColumns;
 
 /**
  * ContentProvider
@@ -20,18 +20,18 @@ import com.gyz.myandroidframe.db.PluginsColumns;
  * @author guoyuanzhuang
  * 
  */
-public class PluginsProvider extends ContentProvider {
+public class TestItemProvider extends ContentProvider {
 	private final String tag = this.getClass().getName();
 	public static final Uri uri = Uri.parse("content://"
-			+ BaseTableColumns.AUTHORITY + "/" + PluginsColumns.TABLE_NAME);
+			+ BaseTableColumns.AUTHORITY + "/" + TestItemColumns.TABLE_NAME);
 	private static final UriMatcher URIMATCHER;
 	private static final int PLUGIN = 0; // 单条匹配
 	private static final int PLUGINS = 1; // 多条匹配
 	static {
 		URIMATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 		URIMATCHER.addURI(BaseTableColumns.AUTHORITY,
-				PluginsColumns.TABLE_NAME, PLUGINS);
-		URIMATCHER.addURI(BaseTableColumns.AUTHORITY, PluginsColumns.TABLE_NAME
+				TestItemColumns.TABLE_NAME, PLUGINS);
+		URIMATCHER.addURI(BaseTableColumns.AUTHORITY, TestItemColumns.TABLE_NAME
 				+ "/#", PLUGIN);
 	}
 	private DBHelper mDBHelper = null;
@@ -50,7 +50,7 @@ public class PluginsProvider extends ContentProvider {
 		Uri resultUri = null;
 		SQLiteDatabase database = mDBHelper.getWritableDatabase();
 		try {
-			long results = database.insert(PluginsColumns.TABLE_NAME, null,
+			long results = database.insert(TestItemColumns.TABLE_NAME, null,
 					values);
 			resultUri = ContentUris.withAppendedId(uri, results);
 		} catch (Exception e) {
@@ -69,7 +69,7 @@ public class PluginsProvider extends ContentProvider {
 		int count = -1;
 		SQLiteDatabase database = mDBHelper.getWritableDatabase();
 		try {
-			count = database.delete(PluginsColumns.TABLE_NAME, selection,
+			count = database.delete(TestItemColumns.TABLE_NAME, selection,
 					selectionArgs);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -88,7 +88,7 @@ public class PluginsProvider extends ContentProvider {
 		int count = -1;
 		SQLiteDatabase database = mDBHelper.getWritableDatabase();
 		try {
-			database.update(PluginsColumns.TABLE_NAME, values, selection,
+			database.update(TestItemColumns.TABLE_NAME, values, selection,
 					selectionArgs);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -107,14 +107,14 @@ public class PluginsProvider extends ContentProvider {
 		Cursor cursor = null;
 		SQLiteDatabase database = mDBHelper.getReadableDatabase();
 		try {
-			cursor = database.query(PluginsColumns.TABLE_NAME, null, selection,
+			cursor = database.query(TestItemColumns.TABLE_NAME, null, selection,
 					selectionArgs, null, null, sortOrder);
 		} catch (Exception e) {
 			// TODO: handle exception
 			AppLog.e(tag, e.getMessage());
 		} finally {
-			if (database != null)
-				database.close();
+//			if (database != null)
+//				database.close();
 		}
 		return cursor;
 	}
@@ -125,9 +125,9 @@ public class PluginsProvider extends ContentProvider {
 		int flag = URIMATCHER.match(uri);
 		switch (flag) {
 		case PLUGIN: // vnd.android.cursor.dir
-			return "vnd.android.cursor.dir/" + PluginsColumns.TABLE_NAME;
+			return "vnd.android.cursor.dir/" + TestItemColumns.TABLE_NAME;
 		case PLUGINS:// vnd.android.cursor.item
-			return "vnd.android.cursor.item/" + PluginsColumns.TABLE_NAME;
+			return "vnd.android.cursor.item/" + TestItemColumns.TABLE_NAME;
 		default:
 			break;
 		}

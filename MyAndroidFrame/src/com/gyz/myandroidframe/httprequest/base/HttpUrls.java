@@ -1,4 +1,4 @@
-package com.gyz.myandroidframe.httpdata;
+package com.gyz.myandroidframe.httprequest.base;
 /**
  * URL类：定义HTTP交互方式和协议
  * @author guoyuanzhuang
@@ -7,8 +7,8 @@ package com.gyz.myandroidframe.httpdata;
 public class HttpUrls {
 	public final static String HTTP = "http://";
 	public final static String HTTPS = "https://";
-	public final static String HOST = "www.oschina.net";
+	public final static String HOST = "";
 	private final static String URL_SPLITTER = "/";
-	//登录链接
-	public final static String LOGIN_VALIDATE_HTTPS = HTTPS + HOST + URL_SPLITTER + "action/api/login_validate";
+	//RSS新闻链接
+	public final static String HTTP_TEST_REQUEST = "http://10.1.2.8/testinfo.xml";
 }

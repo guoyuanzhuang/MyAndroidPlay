@@ -16,6 +16,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.gyz.myandroidframe.app.AppLog;
+
 /**
  * A simple disk LRU bitmap cache to illustrate how a disk cache would be used for bitmap caching. A
  * much more robust and efficient disk LRU cache solution can be found in the ICS source code
@@ -162,21 +164,26 @@ public class DiskLruCache {
 	 */
 	public Bitmap get(String key) {
 		synchronized (mLinkedHashMap) {
-			final String file = mLinkedHashMap.get(key);
-			if (file != null) {
-				if (DEBUG) {
-					Log.d(TAG, "Disk cache hit");
-				}
-				return BitmapFactory.decodeFile(file);
-			} else {
-				final String existingFile = createFilePath(mCacheDir, key);
-				if (new File(existingFile).exists()) {
-					put(key, existingFile);
+			try {
+				final String file = mLinkedHashMap.get(key);
+				if (file != null) {
 					if (DEBUG) {
-						Log.d(TAG, "Disk cache hit (existing file)");
+						Log.d(TAG, "Disk cache hit");
 					}
-					return BitmapFactory.decodeFile(existingFile);
+					return BitmapFactory.decodeFile(file);
+				} else {
+					final String existingFile = createFilePath(mCacheDir, key);
+					if (new File(existingFile).exists()) {
+						put(key, existingFile);
+						if (DEBUG) {
+							Log.d(TAG, "Disk cache hit (existing file)");
+						}
+						return BitmapFactory.decodeFile(existingFile);
+					}
 				}
+			} catch (OutOfMemoryError e) {
+				// TODO: handle exception
+				AppLog.e(TAG, "Bitmap OutOfMemoryError");
 			}
 			return null;
 		}

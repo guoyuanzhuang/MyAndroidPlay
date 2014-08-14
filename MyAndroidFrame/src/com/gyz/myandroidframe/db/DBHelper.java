@@ -9,10 +9,10 @@ public class DBHelper extends SQLiteOpenHelper {
 	public final String tag = this.getClass().getName();
 	//
 	public static String DBNAME = "myandroidframe.db";
-	public static int DBVERSION = 1;
+	public static int DBVERSION = 2;
 
 	public static DBHelper mDBHelper;
-
+	
 	public static DBHelper getInstance(Context context) {
 		if (mDBHelper == null) {
 			mDBHelper = new DBHelper(context);

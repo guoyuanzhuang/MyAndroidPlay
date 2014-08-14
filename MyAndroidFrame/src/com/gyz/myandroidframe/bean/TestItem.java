@@ -4,24 +4,26 @@ import java.io.InputStream;
 import java.util.List;
 
 import com.gyz.myandroidframe.app.AppException;
-
 /**
- * RSS
- * @author guoyuanzhuang
+ * 
+ * @ClassName RSSItem 
+ * @Description RRS测试
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:38:52 
  *
  */
-public class RSSItem extends BaseEntity{
+public class TestItem extends BaseEntity {
 	private String title;
 	private String link;
 	private String description;
 	private String pubDate;
 
-	public RSSItem() {
+	public TestItem() {
 		super();
 	}
-	
-	public interface RSSParse{
-		List<RSSItem>  getRSSItems(InputStream stream) throws AppException;
+
+	public interface TestParse {
+		List<TestItem> getTestItems(InputStream stream) throws AppException;
 	}
 
 	public String getTitle() {
@@ -31,7 +33,7 @@ public class RSSItem extends BaseEntity{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	
 	public String getLink() {
 		return link;
 	}

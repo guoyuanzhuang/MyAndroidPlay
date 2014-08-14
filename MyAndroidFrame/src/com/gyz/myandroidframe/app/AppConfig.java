@@ -5,10 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Environment;
 
 /**
- * 应用程序配置初始化:用于保存程序相关信息和设置
  * 
- * @author guoyuanzhuang
- * 
+ * @ClassName AppConfig 
+ * @Description 应用程序配置初始化:用于保存程序相关信息和设置
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:33:07 
+ *
  */
 public class AppConfig {
 	public static final String DIRNAME = "MyAndroidFrame";

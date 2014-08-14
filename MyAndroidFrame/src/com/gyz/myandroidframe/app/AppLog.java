@@ -3,12 +3,13 @@ package com.gyz.myandroidframe.app;
 import android.util.Log;
 
 /**
- * 应用程序Log管理 :用于控制程序Log输出
  * 
- * @author guoyuanzhuang
- * 
+ * @ClassName AppLog 
+ * @Description 应用程序Log管理 :用于控制程序Log输出
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:34:56 
  * @thinking 1.标记日志的管理者；2.精确定位日志(所属类、方法、行)；3.标记日志所属AP；4.是否有必要进行文件管理
- * 
+ *
  */
 public class AppLog {
 	// i d e v w
@@ -20,8 +21,6 @@ public class AppLog {
 			Log.i(tag, msg);
 		}
 	}
-	
-	
 
 	public static void d(String tag, String msg) {
 		if (isToast) {

@@ -6,10 +6,14 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 
+
 /**
- * 应用程序管理类:管理程序Activity
- * @author guoyuanzhuang
- * @date 2013-10-26
+ * 
+ * @ClassName AppManager 
+ * @Description 应用程序管理类:管理程序Activity
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:35:28 
+ *
  */
 public class AppManager {
 	

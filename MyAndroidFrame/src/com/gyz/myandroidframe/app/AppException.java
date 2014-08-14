@@ -8,6 +8,7 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import java.net.ConnectException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.text.ParseException;
 import java.util.Date;
 
 import org.apache.http.HttpException;
@@ -22,19 +23,21 @@ import android.widget.Toast;
 import com.gyz.myandroidframe.R;
 
 /**
- * 应用程序异常类:用于处理程序异常
  * 
- * @author guoyuanzhuang
- * 
+ * @ClassName AppException 
+ * @Description 应用程序异常类:用于处理程序异常
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:34:34 
+ *
  */
 public class AppException extends Exception implements UncaughtExceptionHandler {
 
 	private final static boolean Debug = false;// 是否保存错误日志
 
 	/** 定义异常类型 */
-	public final static byte TYPE_HTTP_UNCONNECT = 0x01;
-	public final static byte TYPE_HTTP_ERROR = 0x04;
-	public final static byte TYPE_XML = 0x05;
+	public final static byte TYPE_HTTP_UNCONNECT = 0x01;//无网络
+	public final static byte TYPE_HTTP_ERROR = 0x04;	//网络异常
+	public final static byte TYPE_XML_ERROR = 0x05;			//xml解析错误
 
 	private byte type;
 	private int code;
@@ -62,19 +65,39 @@ public class AppException extends Exception implements UncaughtExceptionHandler 
 	public int getType() {
 		return this.type;
 	}
+	
+	/**
+	 * 获取APP异常崩溃处理对象
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static AppException getAppExceptionHandler() {
+		return new AppException();
+	}
 
 	/**
-	 * 网络异常
+	 * 捕捉网络异常
 	 * 
 	 * @param e
 	 * @return
 	 */
 	public static AppException network(Exception e) {
-		if (e instanceof NetworkErrorException) {
-			return new AppException(TYPE_HTTP_ERROR, 0, e);
-		} else{
+		if (e instanceof NetworkErrorException) {			//无网络链接
+			return new AppException(TYPE_HTTP_UNCONNECT, 0, e);
+		}else{			//网络异常
 			return new AppException(TYPE_HTTP_ERROR, 0, e);
 		}
+	}
+	
+	/**
+	 * xml解析异常
+	 * 
+	 * @param e
+	 * @return
+	 */
+	public static AppException xml(Exception e) {
+		return new AppException(TYPE_XML_ERROR, 0, e);
 	}
 
 	/**
@@ -92,7 +115,7 @@ public class AppException extends Exception implements UncaughtExceptionHandler 
 			Toast.makeText(ctx, R.string.network_not_connected,
 					Toast.LENGTH_SHORT).show();
 			break;
-		case TYPE_XML:
+		case TYPE_XML_ERROR:
 			Toast.makeText(ctx, R.string.xml_parser_failed, Toast.LENGTH_SHORT)
 					.show();
 			break;
@@ -153,25 +176,6 @@ public class AppException extends Exception implements UncaughtExceptionHandler 
 
 	}
 
-	/**
-	 * xml解析异常
-	 * 
-	 * @param e
-	 * @return
-	 */
-	public static AppException xml(Exception e) {
-		return new AppException(TYPE_XML, 0, e);
-	}
-
-	/**
-	 * 获取APP异常崩溃处理对象
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public static AppException getAppExceptionHandler() {
-		return new AppException();
-	}
 
 	@Override
 	public void uncaughtException(Thread thread, Throwable ex) {

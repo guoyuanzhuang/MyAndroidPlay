@@ -9,7 +9,7 @@ public abstract class BaseTableColumns implements BaseColumns {
 	//ContentProvider
 	public static final String AUTHORITY = "com.gyz.myandroidframe.dao";
 	
-	public static final String[] SUBCLASSES = new String[] { "com.gyz.myandroidframe.db.UserColumns" };
+	public static final String[] SUBCLASSES = new String[] { "com.gyz.myandroidframe.db.TestItemColumns" };
 
 	public String getTableCreateor() {
 		return getTableCreator(getTableName(), getTableMap());

@@ -11,7 +11,9 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 访问网络权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 访问SD卡权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> <!-- I/O File操作权限 -->
-
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> <!-- I/O File操作权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 访问网络状态 -->
+    
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.gyz.myandroidframe" >
@@ -37,7 +39,7 @@
         </activity>
 
         <provider
-            android:name="com.gyz.myandroidframe.dao.PluginsProvider"
+            android:name="com.gyz.myandroidframe.dao.TestItemProvider"
             android:authorities="com.gyz.myandroidframe.dao" >
         </provider>
         

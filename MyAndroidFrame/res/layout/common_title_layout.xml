@@ -86,6 +86,11 @@
                 android:textSize="@dimen/title_center_textsize" />
         </LinearLayout>
     </RelativeLayout>
+    <!-- 网络异常提示 -->
+    <FrameLayout
+        android:id="@+id/title_exception_view"
+        android:layout_width="match_parent"
+        android:layout_height="30dip" ></FrameLayout>
     <!-- 内容 -->
 
     <FrameLayout

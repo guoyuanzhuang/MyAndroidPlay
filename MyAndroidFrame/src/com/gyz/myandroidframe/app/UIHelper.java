@@ -7,11 +7,13 @@ import android.content.Intent;
 
 import com.gyz.myandroidframe.R;
 
-
 /**
- * 应用程序UI工具包：封装UI事件驱动的一些操作
  * 
- * @author guoyuanzhuang
+ * @ClassName UIHelper 
+ * @Description 应用程序UI工具包：封装UI事件驱动的一些操作
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:37:37 
+ *
  */
 public class UIHelper {
 	/**

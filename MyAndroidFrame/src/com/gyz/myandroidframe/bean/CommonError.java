@@ -2,6 +2,8 @@ package com.gyz.myandroidframe.bean;
 
 import java.io.InputStream;
 
+import com.gyz.myandroidframe.app.AppException;
+
 /**
  * 公共错误信息类
  * 
@@ -13,7 +15,7 @@ public class CommonError extends BaseEntity {
 	private String errorMsg;// 错误信息
 
 	public interface ErrorParse {
-		CommonError getErrorInfo(InputStream stream);
+		CommonError getErrorInfo(InputStream stream)throws AppException;
 	}
 
 	public int getErrorCode() {

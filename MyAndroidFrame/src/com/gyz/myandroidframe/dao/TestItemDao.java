@@ -1,24 +1,27 @@
 package com.gyz.myandroidframe.dao;
 
-import com.gyz.myandroidframe.app.AppLog;
-import com.gyz.myandroidframe.db.DBHelper;
-import com.gyz.myandroidframe.db.PluginsColumns;
-import com.gyz.myandroidframe.db.UserColumns;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.gyz.myandroidframe.app.AppLog;
+import com.gyz.myandroidframe.bean.TestItem;
+import com.gyz.myandroidframe.db.DBHelper;
+import com.gyz.myandroidframe.db.TestItemColumns;
 /**
  * 
  * @author guoyuanzhuang
  *
  */
-public class UserDao implements BaseDao {
+public class TestItemDao implements BaseDao {
 	private final String tag = this.getClass().getName();
 	private DBHelper mDBHelper;
 
-	public UserDao(Context context) {
+	public TestItemDao(Context context) {
 		mDBHelper = DBHelper.getInstance(context);
 	}
 
@@ -27,7 +30,7 @@ public class UserDao implements BaseDao {
 		// TODO Auto-generated method stub
 		SQLiteDatabase database = mDBHelper.getWritableDatabase();
 		try {
-			long count = database.insert(UserColumns.TABLE_NAME, null, values);
+			long count = database.insert(TestItemColumns.TABLE_NAME, null, values);
 			return count > 0;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -44,7 +47,7 @@ public class UserDao implements BaseDao {
 		// TODO Auto-generated method stub
 		SQLiteDatabase database = mDBHelper.getWritableDatabase();
 		try {
-			int count = database.delete(UserColumns.TABLE_NAME, whereClause,
+			int count = database.delete(TestItemColumns.TABLE_NAME, whereClause,
 					whereArgs);
 			return count > 0;
 		} catch (Exception e) {
@@ -63,7 +66,7 @@ public class UserDao implements BaseDao {
 		// TODO Auto-generated method stub
 		SQLiteDatabase database = mDBHelper.getWritableDatabase();
 		try {
-			int count = database.update(UserColumns.TABLE_NAME, values,
+			int count = database.update(TestItemColumns.TABLE_NAME, values,
 					whereClause, whereArgs);
 			return count > 0;
 		} catch (Exception e) {
@@ -82,16 +85,27 @@ public class UserDao implements BaseDao {
 		Cursor cursor = null;
 		SQLiteDatabase database = mDBHelper.getReadableDatabase();
 		try {
-			cursor = database.query(PluginsColumns.TABLE_NAME, null, selection,
+			cursor = database.query(TestItemColumns.TABLE_NAME, null, selection,
 					selectionArgs, null, null, null);
 		} catch (Exception e) {
 			// TODO: handle exception
 			AppLog.e(tag, e.getMessage());
-		} finally {
-			if (database != null)
-				database.close();
 		}
 		return cursor;
+	}
+	
+	public List<TestItem> queryTestItems(String selection, String[] selectionArgs){
+		List<TestItem> testItemList = new ArrayList<TestItem>();
+		Cursor cursor = query(selection, selectionArgs);
+		if(cursor != null && cursor.moveToNext()){
+			TestItem testItems = new TestItem();
+			testItems.setTitle(cursor.getString(cursor.getColumnIndex(TestItemColumns.TEST_TITLE)));
+			testItems.setDescription(cursor.getString(cursor.getColumnIndex(TestItemColumns.TEST_DES)));
+			testItems.setLink(cursor.getString(cursor.getColumnIndex(TestItemColumns.TEST_LINK)));
+			testItems.setPubDate(cursor.getString(cursor.getColumnIndex(TestItemColumns.TEST_DATE)));
+			testItemList.add(testItems);
+		}
+		return testItemList;
 	}
 
 }

@@ -1,11 +1,11 @@
-package com.gyz.myandroidframe.httpdata;
+package com.gyz.myandroidframe.httprequest.base;
 
-import java.io.File;
+import java.io.Serializable;
 
 import android.content.Context;
 
 public class DataCacheFactory {
-	private static final int MEMORY_CACHE_SIZE = 1024 * 1024 * 4; // 内存4MB
+	private static final int MEMORY_CACHE_SIZE = 1024 * 1024 * 4; // 内存4MB --- 本地缓存无限制
 	
 	public DataMemoryCache mDataMemoryCache; // 数据内存缓存
 	public DataDiskCache mDataDiskCache; // 数据磁盘缓存
@@ -13,7 +13,7 @@ public class DataCacheFactory {
 	public static DataCacheFactory mDataCacheManager;
 
 	private Context mContext;
-	File cacheDir = mContext.getCacheDir();
+//	File cacheDir = mContext.getCacheDir();
 
 	public DataCacheFactory(Context mContext) {
 		// TODO Auto-generated constructor stub
@@ -33,17 +33,29 @@ public class DataCacheFactory {
 	public void setMemory(String key, String results) {
 		mDataMemoryCache.put(key, results);
 	}
+	public void setMemory(String key, Serializable results) {
+		mDataMemoryCache.put(key, results);
+	}
 
 	public void setDisk(String key, String results) {
+		mDataDiskCache.put(key, results);
+	}
+	public void setDisk(String key, Serializable results) {
 		mDataDiskCache.put(key, results);
 	}
 
 	public String getMemory(String key) {
 		return mDataMemoryCache.getString(key);
 	}
+	public Serializable getObjectMemory(String key) {
+		return mDataMemoryCache.getObject(key);
+	}
 
 	public String getDisk(String key) {
 		return mDataDiskCache.getString(key);
+	}
+	public Serializable getObjectDisk(String key) {
+		return mDataDiskCache.getObject(key);
 	}
 
 	public void removeMemory(String key) {

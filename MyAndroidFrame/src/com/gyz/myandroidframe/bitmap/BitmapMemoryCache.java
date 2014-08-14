@@ -3,9 +3,13 @@ package com.gyz.myandroidframe.bitmap;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;
+
 /**
- * 图片内存缓存实现
- * @author guoyuanzhuang
+ * 
+ * @ClassName BitmapMemoryCache 
+ * @Description 图片内存缓存实现
+ * @author guoyuanzhuang@gmail.com 
+ * @date 2014-4-20 上午12:41:58 
  *
  */
 public class BitmapMemoryCache implements BaseLruCache {

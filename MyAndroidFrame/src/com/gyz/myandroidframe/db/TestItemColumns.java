@@ -5,19 +5,21 @@ import java.util.Map;
 
 import android.net.Uri;
 
-public class UserColumns extends BaseTableColumns {
-	public static final String TABLE_NAME = "userinfo";
+public class TestItemColumns extends BaseTableColumns {
+	public static final String TABLE_NAME = "testitems";
 	//
-	public static final String USER_URL = "url";
-	public static final String USER_CONTENT = "content";
-	public static final String USER_TIME = "update_time";
+	public static final String TEST_TITLE = "title";
+	public static final String TEST_LINK = "link";
+	public static final String TEST_DES = "description";
+	public static final String TEST_DATE = "pudate";
 	//
 	private static final Map<String, String> mColumnMap = new HashMap<String, String>();
 	static {
 		mColumnMap.put(_ID, "integer primary key autoincrement");
-		mColumnMap.put(USER_URL, "varchar(100) not null");
-		mColumnMap.put(USER_CONTENT, "text not null");
-		mColumnMap.put(USER_URL, "localtime");
+		mColumnMap.put(TEST_TITLE, "varchar(100) not null");
+		mColumnMap.put(TEST_LINK, "text not null");
+		mColumnMap.put(TEST_DES, "text not null");
+		mColumnMap.put(TEST_DATE, "localtime");
 	}
 
 	@Override
